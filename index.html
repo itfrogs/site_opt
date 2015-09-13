@@ -103,9 +103,9 @@
             
                         {if $wa->shop}
                             <!-- cart -->
-                            {$cart_total = $wa->shop->cart->total()}
+                            {$cart_total = shopOptPluginViewHelper::getCartTotal()}
                             <div id="cart" class="cart{if !$cart_total} empty{/if}">
-                                 <a href="{$wa->getUrl('shop/frontend/cart')}" class="cart-summary">
+                                 <a href="{shopOptPluginViewHelper::getCartUrl()}" class="cart-summary">
                                      <i class="cart-icon"></i>
                                      <strong class="cart-total">{wa_currency_html($cart_total, $wa->shop->currency())}</strong>
                                  </a>
@@ -114,7 +114,7 @@
                                         %s is now in your shopping cart
                                      </div> *}
                                  </div>
-                                 <a href="{$wa->getUrl('shop/frontend/cart')}" class="cart-to-checkout" style="display: none;">
+                                 <a href="{shopOptPluginViewHelper::getCartUrl()}" class="cart-to-checkout" style="display: none;">
                                      [s`View cart`]
                                  </a>
                             </div>
@@ -203,8 +203,8 @@
                 {if $wa->shop}
                     <div class="footer-block">
                         <a href="{$wa->getUrl('shop/frontend')}" class="top">[s`Shop`]</a>
-                        <a href="{$wa->getUrl('shop/frontend/cart')}">[s`Cart`]</a>
-                        <a href="{$wa->getUrl('shop/frontend/checkout')}">[s`Checkout`]</a>
+                        <a href="{shopOptPluginViewHelper::getCartUrl()}">[s`Cart`]</a>
+                        <a href="{shopOptPluginViewHelper::getCheckoutUrl()}">[s`Checkout`]</a>
                     </div>
                 {/if}
     
